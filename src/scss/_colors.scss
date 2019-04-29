@@ -14,53 +14,71 @@ $color-success: #519a39;
 $color-warning: #d8842b;
 $color-danger: #d64d4d;
 $color-disabled: #CCC;
+$color-dark: #343a40;
+$color-light: #f8f9fa;
 
-.text-color {
-    &.info {
-        color: $color-info;
-    }
+// Text color
 
-    &.success {
-        color:$color-success;
-    }
-
-    &.warning {
-        color: $color-warning;
-    }
-
-    &.danger {
-        color: $color-danger;
-    }
-
-    &.disabled {
-        color:$color-disabled;
-    }
+.text-info {
+    color: $color-info;
 }
+
+.text-success {
+    color:$color-success;
+}
+
+.text-warning {
+    color: $color-warning;
+}
+
+.text-danger {
+    color: $color-danger;
+}
+
+.text-disabled {
+    color:$color-disabled;
+}
+
+.text-dark {
+    color: $color-dark;
+}
+
+.text-light {
+    color: $color-light;
+}
+
+//Background color
 
 @mixin bg-color($color) {
-    background-color: $color;
-    color: #FFF;
+    background-color: $color !important;
+    color: #FFF !important;
 }
 
-.bg-color {
+.bg-info {
+    @include bg-color($color-info);
+}
 
-    &.info {
-        @include bg-color($color-info);
-    }
+.bg-success {
+    @include bg-color($color-success);
+}
 
-    &.success {
-        @include bg-color($color-success);
-    }
+.bg-warning {
+    @include bg-color($color-warning);
+}
 
-    &.warning {
-        @include bg-color($color-warning);
-    }
+.bg-danger {
+    @include bg-color($color-danger);
+}
 
-    &.danger {
-        @include bg-color($color-danger);
-    }
+.bg-disabled {
+    @include bg-color($color-disabled);
+}
 
-    &.disabled {
-        @include bg-color($color-disabled);
-    }
+.bg-dark {
+    @include bg-color($color-dark);
+}
+
+.bg-light {
+    background-color: $color-light;
+    color: $color-dark;
 }

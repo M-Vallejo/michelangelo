@@ -19,6 +19,4 @@ input.control, textarea.control {
     color: $control-hint-text-color;
     margin-top: .25rem;
     margin-right: 2.5rem;
-
-    @extend .text-color;
 }
