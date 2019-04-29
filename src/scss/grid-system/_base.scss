@@ -1,0 +1,62 @@
+@import './config';
+@import './mixins/base';
+@import './functions/base';
+
+.wrapper {
+    box-sizing: border-box;
+    max-width: $flexboxgrid-max-width;
+    margin: 0 auto;
+  }
+
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    @if($compensate-gutter == 1) {
+      padding-right: $flexboxgrid-outer-margin;
+      padding-left: $flexboxgrid-outer-margin;
+    }
+  }
+
+.row {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @if($compensate-gutter == 1) {
+      margin-right: $gutter-compensation;
+      margin-left: $gutter-compensation;
+    }
+}
+
+.row.reverse {
+    flex-direction: row-reverse;
+  }
+  
+.col.reverse {
+    flex-direction: column-reverse;
+}
+
+//Create the base grid xs.
+@include grid();
+
+//Create the grids based on config;
+@each $breakpoint in $flexboxgrid-breakpoints {
+    $name: nth($breakpoint, 1);
+    $size: nth($breakpoint, 2);
+    $container: nth($breakpoint, 3);
+
+    @media only screen and (min-width: $size) {
+      .container {
+        width: $container;
+      }
+
+      @include grid($name);
+    }
+}
+

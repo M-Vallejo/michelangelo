@@ -1,0 +1,66 @@
+//Controls
+$control-color: #495057;
+$control-border-color: #ced4da;
+$control-placeholder-color: #BBB;
+$control-hint-text-color: #6c757d;
+
+// Buttons
+$color-button-default-font: #333;
+$color-button-default: #EAEAEA;
+
+$color-accept: #1b6a99;
+$color-info : $color-accept;
+$color-success: #519a39;
+$color-warning: #d8842b;
+$color-danger: #d64d4d;
+$color-disabled: #CCC;
+
+.text-color {
+    &.info {
+        color: $color-info;
+    }
+
+    &.success {
+        color:$color-success;
+    }
+
+    &.warning {
+        color: $color-warning;
+    }
+
+    &.danger {
+        color: $color-danger;
+    }
+
+    &.disabled {
+        color:$color-disabled;
+    }
+}
+
+@mixin bg-color($color) {
+    background-color: $color;
+    color: #FFF;
+}
+
+.bg-color {
+
+    &.info {
+        @include bg-color($color-info);
+    }
+
+    &.success {
+        @include bg-color($color-success);
+    }
+
+    &.warning {
+        @include bg-color($color-warning);
+    }
+
+    &.danger {
+        @include bg-color($color-danger);
+    }
+
+    &.disabled {
+        @include bg-color($color-disabled);
+    }
+}

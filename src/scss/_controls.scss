@@ -1,0 +1,24 @@
+.control {
+    padding: 7px 5px;
+    color: $control-color;
+    border: 1px solid $control-border-color;
+    border-radius: 2px;
+    width: 100%;
+
+    &::placeholder {
+        color: $control-placeholder-color;
+    }
+}
+
+input.control, textarea.control {
+    padding: .375rem .75rem;
+}
+
+.control-hint-text {
+    display: block;
+    color: $control-hint-text-color;
+    margin-top: .25rem;
+    margin-right: 2.5rem;
+
+    @extend .text-color;
+}

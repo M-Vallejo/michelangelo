@@ -1,0 +1,96 @@
+$hover-alpha: 0.8;
+
+//#region MIXINS
+
+@mixin btn-s($color) {
+    background-color: $color;
+    color: #FFF;
+    border:none;
+
+        &:hover {
+            background-color: rgba($color: $color, $alpha: $hover-alpha);
+        }
+}
+
+@mixin btn-c($color) {
+    color: $color;
+    border: 1px solid $color;
+
+        &:hover {
+            color: #FFF;
+            background-color: rgba($color: $color, $alpha: $hover-alpha);
+        }
+}
+
+//#endregion
+
+.btn {
+    border:1px solid #CCC;
+    padding: 5px 15px;
+    margin:1px;
+    border-radius: 2px;
+    color: $color-button-default-font;
+    cursor: pointer;
+}
+
+.btn-s {
+    @extend .btn;
+    background-color: $color-button-default;
+
+    &:hover {
+        background-color: rgba($color: $color-button-default, $alpha: $hover-alpha);
+    }
+
+    &.btn-accept {
+        @include btn-s($color-accept);
+    }
+
+    &.btn-danger {
+        @include btn-s($color-danger);
+    }
+    
+    &.btn-warning {
+        @include btn-s($color-warning);
+    }
+
+    &.btn-success {
+        @include btn-s($color-success);
+    }
+    
+    &:disabled {
+        color: #FAFAFA;
+        background-color: $color-disabled;
+        @extend .disabled;
+    }
+}
+
+.btn-c {
+    @extend .btn;
+    background-color: transparent;
+
+    &:hover {
+        background-color: $color-button-default;
+    }
+
+    &.btn-accept {
+        @include btn-c($color-accept);
+    }
+
+    &.btn-danger {
+       @include btn-c($color-danger);
+    }
+    
+    &.btn-warning {
+        @include btn-c($color-warning);
+    }
+    
+    &.btn-success {
+        @include btn-c($color-success);
+    }
+    
+    &:disabled {
+        @extend .disabled;
+        color: $color-disabled;
+        border-color: $color-disabled;
+    }
+}

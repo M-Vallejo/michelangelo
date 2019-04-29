@@ -1,0 +1,87 @@
+@import '../config';
+@import '../functions/base';
+
+@mixin grid($col-size-type: 'xs') {
+    @include create-grid($col-size-type, $grid-total-columns);
+}
+
+@mixin create-grid($col-size-type: 'xs', $grid-columns) {
+    $base-name: 'col-' + $col-size-type;
+
+    [class^=#{$base-name}] {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        @if($compensate-gutter == 1) {
+            padding-right: $half-gutter-width;
+            padding-left: $half-gutter-width;
+        }
+    }
+
+    @for $c from 0 through $grid-columns {
+        $name: $base-name;
+        $nameoffset: $name + '-offset';
+    
+        @if ($c!=0) {
+            $name: $name + '-#{$c}';
+            $nameoffset: $nameoffset + '-#{$c}';
+        }
+
+        .#{$name} {
+            @if($c == 0) {
+                flex-grow: 1;
+                max-width: column-width($grid-columns, $grid-columns);  
+            }
+            @else {
+                max-width: column-width($c, $grid-columns);  
+            }
+            flex-basis: column-width($c, $grid-columns);
+        }
+    
+        .#{$nameoffset} {
+            margin-left: column-width($c, $grid-columns);
+        }
+    }
+
+    .start-#{$col-size-type} {
+        justify-content:flex-start;
+        text-align: left;
+    }
+
+    .center-#{$col-size-type} {
+        justify-content:center;
+        text-align: center;
+    }
+
+    .end-#{$col-size-type} {
+        justify-content:flex-end;
+        text-align: right;
+    }
+
+    .top-#{$col-size-type} {
+        align-items: flex-start;
+    }
+
+    .middle-#{$col-size-type} {
+        align-items: center;
+    }
+
+    .bottom-#{$col-size-type} {
+        align-items: flex-end;
+    }
+
+    .around-#{$col-size-type} {
+        justify-content: space-around;
+    }
+
+    .between-#{$col-size-type} {
+        justify-content: space-between;
+    }
+
+    .first-#{$col-size-type} {
+        order: -1;
+    }
+
+    .last-#{$col-size-type} {
+        order: 1;
+    }
+}
