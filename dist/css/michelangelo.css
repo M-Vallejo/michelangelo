@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .text-info {
   color: #1b6a99;
 }
@@ -201,7 +202,7 @@ input.control, textarea.control {
   margin-left: auto;
 }
 
-.row {
+.row, .toastr .toastr-body .toastr-title, .toastr {
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
@@ -209,7 +210,7 @@ input.control, textarea.control {
   flex-wrap: wrap;
 }
 
-.row.reverse {
+.row.reverse, .toastr .toastr-body .reverse.toastr-title, .reverse.toastr {
   flex-direction: row-reverse;
 }
 
@@ -241,7 +242,7 @@ input.control, textarea.control {
   margin-left: 8.3333333333%;
 }
 
-.col-xs-2 {
+.col-xs-2, .toastr .toastr-close, .toastr .toastr-icon {
   max-width: 16.6666666667%;
   flex-basis: 16.6666666667%;
 }
@@ -295,7 +296,7 @@ input.control, textarea.control {
   margin-left: 58.3333333333%;
 }
 
-.col-xs-8 {
+.col-xs-8, .toastr .toastr-body {
   max-width: 66.6666666667%;
   flex-basis: 66.6666666667%;
 }
@@ -345,12 +346,12 @@ input.control, textarea.control {
   text-align: left;
 }
 
-.center-xs {
+.center-xs, .toastr .toastr-icon {
   justify-content: center;
   text-align: center;
 }
 
-.end-xs {
+.end-xs, .toastr .toastr-close {
   justify-content: flex-end;
   text-align: right;
 }
@@ -359,7 +360,7 @@ input.control, textarea.control {
   align-items: flex-start;
 }
 
-.middle-xs {
+.middle-xs, .toastr {
   align-items: center;
 }
 
@@ -993,6 +994,265 @@ input.control, textarea.control {
   background-color: #f8f9fa;
 }
 
+.text-info {
+  color: #1b6a99;
+}
+
+.text-success {
+  color: #519a39;
+}
+
+.text-warning {
+  color: #d8842b;
+}
+
+.text-danger {
+  color: #d64d4d;
+}
+
+.text-disabled {
+  color: #CCC;
+}
+
+.text-dark {
+  color: #343a40;
+}
+
+.text-light {
+  color: #f8f9fa;
+}
+
+.bg-info {
+  background-color: #1b6a99 !important;
+  color: #FFF !important;
+}
+
+.bg-success {
+  background-color: #519a39 !important;
+  color: #FFF !important;
+}
+
+.bg-warning {
+  background-color: #d8842b !important;
+  color: #FFF !important;
+}
+
+.bg-danger {
+  background-color: #d64d4d !important;
+  color: #FFF !important;
+}
+
+.bg-disabled {
+  background-color: #CCC !important;
+  color: #FFF !important;
+}
+
+.bg-dark {
+  background-color: #343a40 !important;
+  color: #FFF !important;
+}
+
+.bg-light, .btn-c:hover .badge {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+@font-face {
+  font-family: "fontello";
+  src: url("./font/fontello.eot?37291649");
+  src: url("./font/fontello.eot?37291649#iefix") format("embedded-opentype"), url("./font/fontello.woff2?37291649") format("woff2"), url("./font/fontello.woff?37291649") format("woff"), url("./font/fontello.ttf?37291649") format("truetype"), url("./font/fontello.svg?37291649#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.icon-emo-happy:before, .toastr.bg-success .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-warning:before {
+  content: "";
+}
+
+/* '' */
+.icon-warning-empty:before, .toastr.bg-warning .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-attention-alt:before {
+  content: "";
+}
+
+/* '' */
+.icon-attention:before, .toastr.bg-info .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-adjust:before, .toastr.bg-dark .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-comment-alt:before, .toastr.bg-light .toastr-icon:before, .btn-c:hover .toastr.badge .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-ok-circle:before {
+  content: "";
+}
+
+/* '' */
+.icon-emo-surprised:before, .toastr.bg-danger .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-cancel-circle:before, .toastr .toastr-close a:before {
+  content: "";
+}
+
+/* '' */
+.toastr {
+  background-color: #EEE;
+  border: 1px solid #DDD;
+  color: #333;
+  width: 22em;
+  padding: 0.5rem;
+  border-radius: 3px;
+  min-height: 3rem;
+  margin-bottom: 0.25rem;
+}
+
+.toastr-icon:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak-as: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: 0.2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.toastr-close a:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak-as: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: 0.2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.toastr .toastr-icon {
+  font-size: 1.6rem;
+}
+.toastr .toastr-body .toastr-title {
+  font-weight: bold;
+}
+.toastr .toastr-body .toastr-content {
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+.toastr .toastr-close a {
+  color: inherit;
+  cursor: pointer !important;
+}
+
+@font-face {
+  font-family: "fontello";
+  src: url("./font/fontello.eot?37291649");
+  src: url("./font/fontello.eot?37291649#iefix") format("embedded-opentype"), url("./font/fontello.woff2?37291649") format("woff2"), url("./font/fontello.woff?37291649") format("woff"), url("./font/fontello.ttf?37291649") format("truetype"), url("./font/fontello.svg?37291649#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.icon-emo-happy:before, .toastr.bg-success .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-warning:before {
+  content: "";
+}
+
+/* '' */
+.icon-warning-empty:before, .toastr.bg-warning .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-attention-alt:before {
+  content: "";
+}
+
+/* '' */
+.icon-attention:before, .toastr.bg-info .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-adjust:before, .toastr.bg-dark .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-comment-alt:before, .toastr.bg-light .toastr-icon:before, .btn-c:hover .toastr.badge .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-ok-circle:before {
+  content: "";
+}
+
+/* '' */
+.icon-emo-surprised:before, .toastr.bg-danger .toastr-icon:before {
+  content: "";
+}
+
+/* '' */
+.icon-cancel-circle:before, .toastr .toastr-close a:before {
+  content: "";
+}
+
+/* '' */
 * {
   box-sizing: border-box;
   font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;

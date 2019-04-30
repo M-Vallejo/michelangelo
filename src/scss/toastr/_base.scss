@@ -1,0 +1,74 @@
+@import '../colors';
+@import '../icons/base';
+
+.toastr {
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    color: #333;
+    width: 22em;
+    padding: 0.5rem;
+    border-radius: 3px;
+    min-height: 3rem;
+    margin-bottom: .25rem;
+}
+
+// Apply the icon style to the specify class, 
+// so the class can extend and icon.
+@include apply-icon('toastr-icon');
+@include apply-icon('toastr-close a');
+
+.toastr {
+    @extend .row, .middle-xs;
+
+    &.bg-warning .toastr-icon {
+        @extend .icon-warning-empty;
+    }
+
+    &.bg-success .toastr-icon {
+        @extend .icon-emo-happy;
+    }
+    
+    &.bg-info .toastr-icon {
+        @extend .icon-attention;
+    }
+
+    &.bg-dark .toastr-icon {
+        @extend .icon-adjust;
+    }
+
+    &.bg-danger .toastr-icon {
+        @extend .icon-emo-surprised;
+    }
+
+    &.bg-light .toastr-icon {
+        @extend .icon-comment-alt;
+    }
+
+    .toastr-icon {
+        @extend .col-xs-2, .center-xs;
+        font-size: 1.6rem;
+    }
+
+    .toastr-body {
+        @extend .col-xs-8;
+
+        .toastr-title {
+            @extend .row;
+            font-weight: bold;
+        }
+    
+        .toastr-content {
+            font-weight: normal;
+            font-size: 0.8rem;
+        }
+    }
+
+    .toastr-close {
+        @extend .col-xs-2, .end-xs;
+        a {
+            @extend .icon-cancel-circle;
+            color: inherit;
+            cursor: pointer !important;
+        }
+    }
+}
