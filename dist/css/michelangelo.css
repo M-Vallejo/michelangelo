@@ -69,9 +69,25 @@
   color: #BBB;
 }
 
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+     supported by Chrome and Opera */
+}
+
 .btn, .btn-c, .btn-s {
   border: 1px solid #CCC;
-  padding: 5px 15px;
+  padding: 6px 16px;
   margin: 1px;
   border-radius: 2px;
   color: #333;
@@ -164,18 +180,18 @@
   border-color: #CCC;
 }
 
-.control {
+.control, .i-input {
   padding: 7px 5px;
   color: #495057;
   border: 1px solid #ced4da;
   border-radius: 2px;
   width: 100%;
 }
-.control::placeholder {
+.control::placeholder, .i-input::placeholder {
   color: #BBB;
 }
 
-input.control, textarea.control {
+input.control, input.i-input, textarea.control, textarea.i-input {
   padding: 0.375rem 0.75rem;
 }
 
@@ -184,6 +200,39 @@ input.control, textarea.control {
   color: #6c757d;
   margin-top: 0.25rem;
   margin-right: 2.5rem;
+}
+
+.control-group {
+  width: 100%;
+  margin-bottom: 0.4rem;
+}
+
+.i-container {
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  width: 100%;
+}
+
+.i-input {
+  outline: none;
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+.i-input:focus {
+  border-width: 1px;
+  border-color: #628396;
+  border-style: solid;
+}
+
+.i-icon {
+  padding: 10px;
+  background-color: #BBB;
+  color: white;
+  min-width: 2.5rem;
+  text-align: center;
+  border-radius: 5px 0 0 5px;
 }
 
 .wrapper {
@@ -1253,6 +1302,104 @@ input.control, textarea.control {
 }
 
 /* '' */
+.load-bar {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background-color: #fdba2c;
+}
+
+.bar {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 50%;
+  text-align: center;
+}
+
+.bar:nth-child(1) {
+  background-color: #da4733;
+  animation: loading-multi-bar 3s linear infinite;
+}
+
+.bar:nth-child(2) {
+  background-color: #3b78e7;
+  animation: loading-multi-bar 3s linear 1s infinite;
+}
+
+.bar:nth-child(3) {
+  background-color: #fdba2c;
+  animation: loading-multi-bar 3s linear 2s infinite;
+}
+
+@keyframes loading-multi-bar {
+  from {
+    left: 50%;
+    width: 0;
+    z-index: 100;
+  }
+  33.3333% {
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  to {
+    left: 0;
+    width: 100%;
+  }
+}
+/*
+    <div class="load-bar">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+*/
+.loader {
+  height: 4px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+.loader:before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: -200px;
+  width: 200px;
+  height: 4px;
+  background-color: #2980b9;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  from {
+    left: -200px;
+    width: 30%;
+  }
+  50% {
+    width: 30%;
+  }
+  70% {
+    width: 70%;
+  }
+  80% {
+    left: 50%;
+  }
+  95% {
+    left: 120%;
+  }
+  to {
+    left: 100%;
+  }
+}
+/*
+    <div class="loader"></div>
+*/
 * {
   box-sizing: border-box;
   font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
